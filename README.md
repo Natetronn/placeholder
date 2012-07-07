@@ -4,7 +4,7 @@
 > Placeholder allows you to easily add placeholder images to your site. Big deal right? Well, not really but, the nice thing about Placeholder is it currently combines 4 popular placeholder image servcies into one! You want cute kittens, no problem. You want dogs to chase the cute kittens, bark bark. Just need some generic non-image looking images, sure thing. How about a B&W parasailer gliding over a scenic mountain-scape? Well, I'm not sure that's available but, it might be.
 
 
-## =====placehold.it====== ##
+## placehold.it ##
 The following params are available for placehold.it:
 
 - width (required)
@@ -40,7 +40,7 @@ The following params are available for placehold.it:
 - *The text param uses the + symbol for spaces.*
 
 
-## ======{placekitten}====== ##
+## {placekitten} ##
 The following params are available for placekitten:
 
 - width (required)
@@ -67,7 +67,7 @@ The following params are available for placekitten:
 *If you don't add a height your image will be a squared based on your set width.*
 
 
-## ======PlaceDog====== ##
+## PlaceDog ##
 The following params are available for PlaceDog:
 
 - width (required)
@@ -89,7 +89,7 @@ The following params are available for PlaceDog:
 
 `{exp:placeholder:i_hate_cats}`
 
-## ======LoremPixel====== ##
+## LoremPixel ##
 The following params are available for LoremPixel:
 
 - width (required)
@@ -117,39 +117,39 @@ The following params are available for LoremPixel:
 *Looks like special characters don't work with this service. Use [A-Z­a-z­0-9­-]*
 
 
-## ======Other Notes====== ##
+## Other Notes ##
 The extra param may be used to manually add things like class, id, title, alt, rel etc. - note the single quotes
 
 **Example usage:**
 
 `{exp:placeholder:pk width="300" height="600" greyscale="yes" extra='alt="Cool pic" id="someID" class="someClass"'}	`
 
-## ======Compatibility====== ##
+## Compatibility ##
 
 **ExpressionEngine 2.x+**
 
 *Tested in 2.4.0*
 
-## ======Installation====== ##
+## Installation ##
 
 **For EE2**
 
 Copy *system/expressionengine/third_party/placeholder* to your *system/expressionengine/third_party* directory
 
-## ======Change Log====== ##
+## Change Log ##
 
 **Jul 06, 2012: 1.0.0**
 
 *Initial Release*
 
-## ======Support====== ##
+## Support ##
 
 
 [http://natetronn.com](http://natetronn.com)
 
 [@natetronn](http://twitter.com/natetronn)
 
-## ======Credits====== ##
+## Credits ##
 
 [http://placekitten.com](http://placekitten.com)
 
