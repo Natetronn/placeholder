@@ -134,7 +134,7 @@ The extra param may be used to manually add things like class, id, title, alt, r
 
 **For EE2**
 
-Copy `*system/expressionengine/third_party/placeholder*` to your `*system/expressionengine/third_party*` directory
+Copy `system/expressionengine/third_party/placeholder` to your `system/expressionengine/third_party` directory
 
 ## Change Log ##
 
