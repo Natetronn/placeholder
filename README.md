@@ -36,7 +36,7 @@ The following params are available for placehold.it:
 
 - *Use hex colors for the color and bg_color params.*
 - *Text and Format params can't be used with bg_color or color apparently.*
-- *If you don't add a height your image will be a squared based on your what you set the width param to.*
+- *If you don't add a height your image will be a squared based on what you set the width param to.*
 - *The text param uses the + symbol for spaces.*
 
 
