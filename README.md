@@ -50,7 +50,7 @@ The following params are available for placekitten:
 
 **Example usage:**
 
-{exp:placeholder:pk width="300" height="600" greyscale="yes"}
+`{exp:placeholder:pk width="300" height="600" greyscale="yes"}`
 
 **Aliases:**
 
@@ -77,7 +77,7 @@ The following params are available for PlaceDog:
 
 **Example usage:**
 
-{exp:placeholder:pd width="300" height="600" greyscale="yes"}
+`{exp:placeholder:pd width="300" height="600" greyscale="yes"}`
 
 **Aliases:**
 
@@ -134,7 +134,7 @@ The extra param may be used to manually add things like class, id, title, alt, r
 
 **For EE2**
 
-Copy *system/expressionengine/third_party/placeholder* to your *system/expressionengine/third_party* directory
+Copy `*system/expressionengine/third_party/placeholder*` to your `*system/expressionengine/third_party*` directory
 
 ## Change Log ##
 
