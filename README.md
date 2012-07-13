@@ -125,7 +125,7 @@ The following params are available for flickholdr:
 - greyscale [yes]
 - offsets [positive integer]
 - ssl [yes]
-- tags [sun,sea] (comma seperated tags of your choosing)
+- tags [sun,sea] ( comma seperated tags of your choosing )
 - extra (custom)
 
 **Example usage:**
