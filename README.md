@@ -36,7 +36,7 @@ The following params are available for placehold.it:
 
 - *Use hex colors for the color and bg_color params.*
 - *Text and Format params can't be used with bg_color or color apparently.*
-- *If you don't add a height your image will be a squared based on what you set the width param to.*
+- *If you don't add a height your image will be squared based on what you set the width param to.*
 - *The text param uses the + symbol for spaces.*
 
 
@@ -64,7 +64,7 @@ The following params are available for placekitten:
 
 **Notes:**
 
-*If you don't add a height your image will be a squared based on your set width.*
+*If you don't add a height your image will be squared based on your set width.*
 
 
 ## PlaceDog ##
@@ -117,6 +117,34 @@ The following params are available for LoremPixel:
 *Looks like special characters don't work with this service. Use [A-Z­a-z­0-9­-]*
 
 
+## flickholdr ##
+The following params are available for flickholdr:
+
+- width (required)
+- height (required)
+- greyscale [yes]
+- offsets [positive integer]
+- ssl [yes]
+- tags [sun,sea] (comma seperated tags of your choosing)
+- extra (custom)
+
+**Example usage:**
+
+`{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1" ssl="yes"}`
+
+**Aliases:**
+
+`{exp:placeholder:fl}`
+
+`{exp:placeholder:flickr}`
+
+`{exp:placeholder:flickholdr}`
+
+**Notes:**
+
+*I'm not sure how offsets work to be honest and if in fact positive integers are the only numbers which can be used or not.*
+
+
 ## Other Notes ##
 The extra param may be used to manually add things like class, id, title, alt, rel etc. - note the single quotes
 
@@ -138,9 +166,16 @@ Copy `system/expressionengine/third_party/placeholder` to your `system/expressio
 
 ## Change Log ##
 
-**Jul 06, 2012: 1.0.0**
+**Jul 12, 2012: 1.0.1**
 
-*Initial Release*
+	Added flickholdr service
+	Updated docs for flickholder usage
+	Reorganized aliases by service
+	Added missing required param warnings
+
+***Jul 06, 2012: 1.0.0***
+
+	Initial Release
 
 ## Support ##
 
@@ -158,3 +193,5 @@ Copy `system/expressionengine/third_party/placeholder` to your `system/expressio
 [http://placehold.it](http://placehold.it)
 
 [http://lorempixel.com](http://lorempixel.com)
+
+[http://flickholdr.com]( http://flickholdr.com)

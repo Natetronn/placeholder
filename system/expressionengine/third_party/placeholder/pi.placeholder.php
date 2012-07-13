@@ -4,7 +4,7 @@
  * Placeholder
  *
  * @package			Placeholder
- * @version			1.0.0
+ * @version			1.0.1
  * @author			Nathan Doyle <@natetronn>
  * @copyright		Copyright (c) 2012 Cosmos Web Works, LLC
  * @license			MIT  http://opensource.org/licenses/mit-license.php
@@ -17,7 +17,7 @@
 
 $plugin_info = array(
 	'pi_name'				=> 'Placeholder',
-	'pi_version'		=> '1.0.0',
+	'pi_version'		=> '1.0.1',
 	'pi_author'			=> 'Nathan Doyle',
 	'pi_author_url'	=> 'http://natetronn.com',
 	'pi_description'=> 'An ExpressionEngine Image Placeholding Add-on',
@@ -174,7 +174,7 @@ class Placeholder {
 
 	}
 	
-		// Switching things up a bit for the {placekitten} service
+	// Switching things up a bit for the placedog service
 	public function pd()
 	{
 	
@@ -244,10 +244,14 @@ class Placeholder {
 		
 		$slash = "/";
 	
-		if ($height  == FALSE) 
+		if ($width == FALSE) 
+		{
+			return 'You forgot to set the weight paramater, please set it.';
+		}
+		if ($height == FALSE) 
 		{
 			return 'You forgot to set the height paramater, please set it.';
-		}	
+		}
 	
 		if (isset($greyscale) && $greyscale == "yes")
 		{
@@ -275,11 +279,77 @@ class Placeholder {
 		
 		if ($extra != FALSE)
 		{
-		$placeholder = '<img '.$extra.' src="'.$src.$width.$slash.$height.$category.$img_number.$text.'" />';
+			$placeholder = '<img '.$extra.' src="'.$src.$width.$slash.$height.$category.$img_number.$text.'" />';
 		}
 		else
 		{
 			$placeholder = '<img src="'.$src.$width.$slash.$height.$category.$img_number.$text.'" />';
+		}
+		
+		return $placeholder;
+	}
+	
+	// Switching things up a bit for the flickholdr service
+	public function fl()
+	{
+	
+		$width 			= $this->EE->TMPL->fetch_param('width');
+		$height 		= $this->EE->TMPL->fetch_param('height');
+		$greyscale	=	$this->EE->TMPL->fetch_param('greyscale');
+		$tags				=	$this->EE->TMPL->fetch_param('tags');
+		$offsets		=	$this->EE->TMPL->fetch_param('offsets');
+		$ssl				=	$this->EE->TMPL->fetch_param('ssl');
+		$extra 			= $this->EE->TMPL->fetch_param('extra');
+		
+		// let's help them out if they add the pixels for some unknown reason
+		$width 			= str_replace('.px','',$width);
+		$height 		= str_replace('.px','',$height);
+		
+		$slash = "/";
+	
+		if ($width == FALSE) 
+		{
+			return 'You forgot to set the weight paramater, please set it.';
+		}
+		if ($height == FALSE) 
+		{
+			return 'You forgot to set the height paramater, please set it.';
+		}
+
+		if (isset($ssl) && $ssl == 'yes')
+		{
+			$src = "https://ssl.flickholdr.com/";
+		}
+		else
+		{
+			$src = "http://flickholdr.com/";
+		}
+		
+		if ($tags != FALSE)
+		{
+			$tags = str_replace(' ', '', $tags);
+			$tags = rtrim($tags, ',');
+			$tags = $slash.$tags;
+		}
+		
+		if (isset($greyscale) && $greyscale == "yes")
+		{
+			$greyscale = $slash."bw";
+		}
+		
+		if ($offsets != FALSE)
+		{
+			$offsets = $slash.$offsets;
+		}
+
+		
+		if ($extra != FALSE)
+		{
+			$placeholder = '<img '.$extra.' src="'.$src.$width.$slash.$height.$tags.$greyscale.$offsets.'" />';
+		}
+		else
+		{
+			$placeholder = '<img src="'.$src.$width.$slash.$height.$tags.$greyscale.$offsets.'" />';
 		}
 		
 		return $placeholder;
@@ -311,6 +381,11 @@ class Placeholder {
 		return $this->pd();
 	}
 	
+	public function i_hate_cats()
+	{
+		return "Do you really hate cats?";
+	}
+	
 	public function placekitten()
 	{
 		return $this->pk();
@@ -319,6 +394,11 @@ class Placeholder {
 	public function kitten()
 	{
 		return $this->pk();
+	}
+	
+	public function i_hate_dogs()
+	{
+		return "Do you really hate dogs?";
 	}
 	
 	public function lorempixel()
@@ -336,15 +416,16 @@ class Placeholder {
 		return $this->lp();
 	}
 	
-	public function i_hate_dogs()
+	public function flickholdr()
 	{
-		return "Do you really hate dogs?";
+		return $this->fl();
 	}
 	
-	public function i_hate_cats()
+	public function flickr()
 	{
-		return "Do you really hate cats?";
+		return $this->fl();
 	}
+
 	
 	
 	/**
@@ -364,7 +445,7 @@ class Placeholder {
 	bg_color
 	color
 	format [jpg|jpeg|gif|png]
-	extra (custom)
+	extra (custom attributes)
 	
 	Example usage:
 	
@@ -391,7 +472,7 @@ class Placeholder {
 	width (required)
 	height
 	greyscale [yes]
-	extra (custom)
+	extra (custom attributes)
 	
 	Example usage:
 	
@@ -413,7 +494,7 @@ class Placeholder {
 	width (required)
 	height (required)
 	greyscale [yes]
-	extra (custom)
+	extra (custom attributes)
 	
 	Example usage:
 	
@@ -434,7 +515,7 @@ class Placeholder {
 	greyscale [yes]
 	category [abstract|animals|city|food|nightlife|fashion|people|nature|sports|technics|transport]
 	img_number [1-10]
-	extra (custom)
+	extra (custom attributes)
 	
 	Example usage:
 	
@@ -449,6 +530,29 @@ class Placeholder {
 
 	Looks like special characters don't work with this service. Use [A-Za-z0-9-]
 	
+	======flickholdr======
+	The following params are available for flickholdr:
+	
+	width (required)
+	height (required)
+	greyscale [yes]
+	offsets [positive integer]
+	ssl [yes]
+	tags [sun,sea] (comma seperated tags of your choosing)
+	extra (custom attributes)
+	
+	Example usage:
+	
+	{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1" ssl="yes"}
+	
+	Aliases:
+	{exp:placeholder:fl}
+	{exp:placeholder:flickr}
+	{exp:placeholder:flickholdr}
+	
+	Notes:
+	
+	I'm not sure how offsets work to be honest and if in fact positive integers are the only numbers which can be used or not.
 	
 	======Other Notes======
 	The extra param may be used for manually adding things like class, id, title, alt, rel etc. - note the single quotes
@@ -462,6 +566,7 @@ class Placeholder {
 	http://placedog.com
 	http://placehold.it
 	http://lorempixel.com
+	http://flickholdr.com
 
 <?php
 		$buffer = ob_get_contents();
