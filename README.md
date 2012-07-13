@@ -13,7 +13,7 @@ The following params are available for placehold.it:
 - bg_color
 - color
 - format [jpg|jpeg|gif|png]
-- extra (custom)
+- extra (custom attributes)
 
 **Example usage:**
 
@@ -46,7 +46,7 @@ The following params are available for placekitten:
 - width (required)
 - height
 - greyscale [yes]
-- extra (custom)
+- extra (custom attributes)
 
 **Example usage:**
 
@@ -73,7 +73,7 @@ The following params are available for PlaceDog:
 - width (required)
 - height (required)
 - greyscale [yes]
-- extra (custom)
+- extra (custom attributes)
 
 **Example usage:**
 
@@ -126,7 +126,7 @@ The following params are available for flickholdr:
 - offsets [positive integer]
 - ssl [yes]
 - tags (comma seperated tags of your choosing)
-- extra (custom)
+- extra (custom attributes)
 
 **Example usage:**
 
