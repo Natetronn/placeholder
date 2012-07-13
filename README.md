@@ -98,7 +98,7 @@ The following params are available for LoremPixel:
 - greyscale [yes]
 - category [abstract|animals|city|food|nightlife|fashion|people|nature|sports|technics|transport]
 - img_number [1-10]
-- extra (custom)
+- extra (custom attributes)
 
 **Example usage:**
 
