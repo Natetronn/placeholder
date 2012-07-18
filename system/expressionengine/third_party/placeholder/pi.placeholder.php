@@ -46,6 +46,7 @@ class Placeholder {
 		$color 			= $this->EE->TMPL->fetch_param('color');
 		$format 		= $this->EE->TMPL->fetch_param('format');
 		$text 			= $this->EE->TMPL->fetch_param('text');
+		$img_tag		= $this->EE->TMPL->fetch_param('img_tag');
 		$extra 			= $this->EE->TMPL->fetch_param('extra');
 		
 		// let's help them out if they add the pixels for some unknown reason
@@ -104,24 +105,32 @@ class Placeholder {
 		
 		if ($color != FALSE OR $bg_color != FALSE)
 		{
-			if ($extra != FALSE)
+			if ($extra != FALSE AND isset($img_tag) AND $img_tag == 'yes')
 			{
 				$placeholder = '<img '.$extra.' src="'.$src.$size.$bg_color.$color.'" />';
 			}
-			else
+			elseif ($img_tag != FALSE AND $img_tag == 'yes')
 			{
 				$placeholder = '<img src="'.$src.$size.$bg_color.$color.'" />';
+			}
+			else
+			{
+				$placeholder = $src.$size.$bg_color.$color;
 			}
 		}
 		else
 		{
-			if ($extra != FALSE)
+			if ($extra != FALSE AND isset($img_tag) AND $img_tag == 'yes')
 			{
 				$placeholder = '<img '.$extra.' src="'.$src.$size.$format.$text.'" />';
 			}
-			else
+			elseif (isset($img_tag) AND $img_tag == 'yes')
 			{
 				$placeholder = '<img src="'.$src.$size.$format.$text.'" />';
+			}
+			else
+			{
+				$placeholder = $src.$size.$format.$text;
 			}
 		}
 		
@@ -135,6 +144,7 @@ class Placeholder {
 		$width 			= $this->EE->TMPL->fetch_param('width');
 		$height 		= $this->EE->TMPL->fetch_param('height');		
 		$greyscale	=	$this->EE->TMPL->fetch_param('greyscale');
+		$img_tag 			= $this->EE->TMPL->fetch_param('img_tag');
 		$extra 			= $this->EE->TMPL->fetch_param('extra');
 		
 		// let's help them out if they add the pixels for some unknown reason
@@ -162,13 +172,17 @@ class Placeholder {
 			$size = $width."/".$height;
 		}
 
-		if ($extra != FALSE)
+		if ($extra != FALSE AND isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img '.$extra.' src="'.$src.$size.'" />';
 		}
-		else
+		elseif (isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img src="'.$src.$size.'" />';
+		}
+		else
+		{
+			$placeholder = $src.$size;
 		}
 		return $placeholder;
 
@@ -181,6 +195,7 @@ class Placeholder {
 		$width 			= $this->EE->TMPL->fetch_param('width');
 		$height 		= $this->EE->TMPL->fetch_param('height');		
 		$greyscale	=	$this->EE->TMPL->fetch_param('greyscale');
+		$img_tag 		= $this->EE->TMPL->fetch_param('img_tag');
 		$extra 			= $this->EE->TMPL->fetch_param('extra');
 		
 		// let's help them out if they add the pixels for some unknown reason
@@ -214,13 +229,17 @@ class Placeholder {
 			$size = $width."/".$height;
 		}
 
-		if ($extra != FALSE)
+		if ($extra != FALSE AND isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img '.$extra.' src="'.$src.$size.'" />';
 		}
-		else
+		elseif (isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img src="'.$src.$size.'" />';
+		}
+		else
+		{
+			$placeholder = $src.$size;
 		}
 		return $placeholder;
 
@@ -236,6 +255,7 @@ class Placeholder {
 		$greyscale	=	$this->EE->TMPL->fetch_param('greyscale');
 		$category		=	$this->EE->TMPL->fetch_param('category');
 		$img_number	=	$this->EE->TMPL->fetch_param('img_number');
+		$img_tag		= $this->EE->TMPL->fetch_param('img_tag');
 		$extra 			= $this->EE->TMPL->fetch_param('extra');
 		
 		// let's help them out if they add the pixels for some unknown reason
@@ -277,13 +297,17 @@ class Placeholder {
 			$text = $slash.$text;
 		}
 		
-		if ($extra != FALSE)
+		if ($extra != FALSE AND isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img '.$extra.' src="'.$src.$width.$slash.$height.$category.$img_number.$text.'" />';
 		}
-		else
+		elseif (isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img src="'.$src.$width.$slash.$height.$category.$img_number.$text.'" />';
+		}
+		else
+		{
+			$placeholder = $src.$width.$slash.$height.$category.$img_number.$text;
 		}
 		
 		return $placeholder;
@@ -299,6 +323,7 @@ class Placeholder {
 		$tags				=	$this->EE->TMPL->fetch_param('tags');
 		$offsets		=	$this->EE->TMPL->fetch_param('offsets');
 		$ssl				=	$this->EE->TMPL->fetch_param('ssl');
+		$img_tag		= $this->EE->TMPL->fetch_param('img_tag');
 		$extra 			= $this->EE->TMPL->fetch_param('extra');
 		
 		// let's help them out if they add the pixels for some unknown reason
@@ -316,14 +341,7 @@ class Placeholder {
 			return 'You forgot to set the height paramater, please set it.';
 		}
 
-		if (isset($ssl) && $ssl == 'yes')
-		{
-			$src = "https://ssl.flickholdr.com/";
-		}
-		else
-		{
-			$src = "http://flickholdr.com/";
-		}
+		$src = "http://flickholdr.com/";
 		
 		if ($tags != FALSE)
 		{
@@ -343,13 +361,17 @@ class Placeholder {
 		}
 
 		
-		if ($extra != FALSE)
+		if ($extra != FALSE AND isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img '.$extra.' src="'.$src.$width.$slash.$height.$tags.$greyscale.$offsets.'" />';
 		}
-		else
+		elseif (isset($img_tag) AND $img_tag == 'yes')
 		{
 			$placeholder = '<img src="'.$src.$width.$slash.$height.$tags.$greyscale.$offsets.'" />';
+		}
+		else
+		{
+			$placeholder = $src.$width.$slash.$height.$tags.$greyscale.$offsets;
 		}
 		
 		return $placeholder;
@@ -445,7 +467,8 @@ class Placeholder {
 	bg_color
 	color
 	format [jpg|jpeg|gif|png]
-	extra (custom attributes)
+	img_tag [yes]
+	extra (custom attributes - requires img_tag)
 	
 	Example usage:
 	
@@ -472,7 +495,8 @@ class Placeholder {
 	width (required)
 	height
 	greyscale [yes]
-	extra (custom attributes)
+	img_tag [yes]
+	extra (custom attributes - requires img_tag)
 	
 	Example usage:
 	
@@ -494,7 +518,8 @@ class Placeholder {
 	width (required)
 	height (required)
 	greyscale [yes]
-	extra (custom attributes)
+	img_tag [yes]
+	extra (custom attributes - requires img_tag)
 	
 	Example usage:
 	
@@ -515,7 +540,8 @@ class Placeholder {
 	greyscale [yes]
 	category [abstract|animals|city|food|nightlife|fashion|people|nature|sports|technics|transport]
 	img_number [1-10]
-	extra (custom attributes)
+	img_tag [yes]
+	extra (custom attributes - requires img_tag)
 	
 	Example usage:
 	
@@ -537,13 +563,13 @@ class Placeholder {
 	height (required)
 	greyscale [yes]
 	offsets [positive integer]
-	ssl [yes]
 	tags [sun,sea] (comma seperated tags of your choosing)
-	extra (custom attributes)
+	img_tag [yes]
+	extra (custom attributes - requires img_tag)
 	
 	Example usage:
 	
-	{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1" ssl="yes"}
+	{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1"}
 	
 	Aliases:
 	{exp:placeholder:fl}
@@ -555,11 +581,17 @@ class Placeholder {
 	I'm not sure how offsets work to be honest and if in fact positive integers are the only numbers which can be used or not.
 	
 	======Other Notes======
-	The extra param may be used for manually adding things like class, id, title, alt, rel etc. - note the single quotes
+	The img_tag can be used for outputting an html img tag.
+	
+	The extra param may be used for manually adding things like class, id, title, alt, rel etc. (requires img_tag) - note the single quotes
 	
 	Example usage:
 	
-	{exp:placeholder:pk width="300" height="600" greyscale="yes" extra='alt="Cool pic" id="someID" class="someClass"'}	
+	{exp:placeholder:pk width="300" height="600" greyscale="yes" img_tag="yes" extra='alt="Cool pic" id="someID" class="someClass"'}
+
+	The above tag will produce the following:
+
+	<img alt="Cool Pic" id="someID" class="someClass" src="http://placekitten.com/g/300/600" />
 	
 	======Credits======
 	http://placekitten.com

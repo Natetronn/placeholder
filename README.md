@@ -5,7 +5,15 @@
 
 **Updates:**
 
-Now with Flickr Support:
+Now with URL as defualt (1.1.0):
+
+***Please note: this update will break your current tag output - update your tags first!***
+
+> Now with URL support by default. You can use your own img tags. Please see "Other Notes" for more details and the "Change Log" *before you update!*
+
+> Removed flickholdr SSL support and the ssl param
+
+Now with Flickr Support (1.0.1):
 
 > placeholders related to the site you are developing
 
@@ -20,7 +28,8 @@ The following params are available for placehold.it:
 - bg_color
 - color
 - format [jpg|jpeg|gif|png]
-- extra (custom attributes)
+- img_tag [yes]
+- extra (custom attributes - requires img_tag)
 
 **Example usage:**
 
@@ -53,7 +62,8 @@ The following params are available for placekitten:
 - width (required)
 - height
 - greyscale [yes]
-- extra (custom attributes)
+- img_tag [yes]
+- extra (custom attributes - requires img_tag)
 
 **Example usage:**
 
@@ -80,7 +90,8 @@ The following params are available for PlaceDog:
 - width (required)
 - height (required)
 - greyscale [yes]
-- extra (custom attributes)
+- img_tag [yes]
+- extra (custom attributes - requires img_tag)
 
 **Example usage:**
 
@@ -105,7 +116,8 @@ The following params are available for LoremPixel:
 - greyscale [yes]
 - category [abstract|animals|city|food|nightlife|fashion|people|nature|sports|technics|transport]
 - img_number [1-10]
-- extra (custom attributes)
+- img_tag [yes]
+- extra (custom attributes - requires img_tag)
 
 **Example usage:**
 
@@ -131,13 +143,13 @@ The following params are available for flickholdr:
 - height (required)
 - greyscale [yes]
 - offsets [positive integer]
-- ssl [yes]
 - tags (comma seperated tags of your choosing)
-- extra (custom attributes)
+- img_tag [yes]
+- extra (custom attributes - requires img_tag)
 
 **Example usage:**
 
-`{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1" ssl="yes"}`
+`{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1"}`
 
 **Aliases:**
 
@@ -153,11 +165,18 @@ The following params are available for flickholdr:
 
 
 ## Other Notes ##
-The extra param may be used to manually add things like class, id, title, alt, rel etc. - note the single quotes
+The img_tag can be used for outputting an html img tag.
+
+The extra param may be used for manually adding things like class, id, title, alt, rel etc. (requires img_tag) - note the single quotes
 
 **Example usage:**
+	
+`{exp:placeholder:pk width="300" height="600" greyscale="yes" img_tag="yes" extra='alt="Cool pic" id="someID" class="someClass"'}`
 
-`{exp:placeholder:pk width="300" height="600" greyscale="yes" extra='alt="Cool pic" id="someID" class="someClass"'}	`
+The above tag will produce the following:
+
+`<img alt="Cool Pic" id="someID" class="someClass" src="http://placekitten.com/g/300/600" />`
+
 
 ## Compatibility ##
 
@@ -173,7 +192,14 @@ Copy `system/expressionengine/third_party/placeholder` to your `system/expressio
 
 ## Change Log ##
 
-**Jul 12, 2012: 1.0.1**
+**Jul 18, 2012: 1.1.0**
+
+	Rewrite - URL output by default instead of the full img tag.
+			- You can now use your own img tags!
+			- Full img tag and extras are now had via params.
+			- Removed flickholdr SSL support and the ssl param
+
+***Jul 12, 2012: 1.0.1***
 
 	Added flickholdr service
 	Updated docs for flickholder usage
