@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Placeholder by Natetronn</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/Natetronn/placeholder">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Placeholder</h1>
+            <h2>An ExpressionEngine Image Placeholding Add-on</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/Natetronn/placeholder/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/Natetronn/placeholder/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <blockquote>
+<p>Placeholder allows you to easily add placeholder images to your site. Big deal right? Well, not really but, the nice thing about Placeholder is it currently combines 5 popular placeholder image servcies into one! You want cute kittens, no problem. You want dogs to chase the cute kittens, bark bark. Just need some generic non-image looking images, sure thing. How about a B&amp;W parasailer gliding over a scenic mountain-scape? Well, I'm not sure that's available but, it might be.</p>
+</blockquote>
+
+<p><strong>Updates:</strong></p>
+
+<p>Now with URL as defualt (1.1.0):</p>
+
+<p><strong><em>Please note: this update will break your current tag output - update your tags first!</em></strong></p>
+
+<blockquote>
+<p>Now with URL support by default. You can use your own img tags. Please see "Other Notes" for more details and the "Change Log" <em>before you update!</em></p>
+
+<p>Removed flickholdr SSL support and the ssl param</p>
+</blockquote>
+
+<p>Now with Flickr Support (1.0.1):</p>
+
+<blockquote>
+<p>placeholders related to the site you are developing</p>
+</blockquote>
+
+<h2>placehold.it</h2>
+
+<p>The following params are available for placehold.it:</p>
+
+<ul>
+<li>width (required)</li>
+<li>height</li>
+<li>text</li>
+<li>bg_color</li>
+<li>color</li>
+<li>format [jpg|jpeg|gif|png]</li>
+<li>img_tag [yes]</li>
+<li>extra (custom attributes - requires img_tag)</li>
+</ul><p><strong>Example usage:</strong></p>
+
+<p><code>{exp:placeholder:ph width="300" height="250" text="Nate+is+amazing!" format="jpg"}</code></p>
+
+<p><code>{exp:placeholder:ph width="300" height="250" bg_color="E8117F" color="FFF"}</code></p>
+
+<p><strong>Aliases:</strong></p>
+
+<p><code>{exp:placeholder:ph}</code></p>
+
+<p><code>{exp:placeholder:phit}</code></p>
+
+<p><code>{exp:placeholder:holdit}</code></p>
+
+<p><code>{exp:placeholder:placeholdit}</code></p>
+
+<p><strong>Notes:</strong></p>
+
+<ul>
+<li><em>Use hex colors for the color and bg_color params.</em></li>
+<li><em>Text and Format params can't be used with bg_color or color apparently.</em></li>
+<li><em>If you don't add a height your image will be squared based on what you set the width param to.</em></li>
+<li><em>The text param uses the + symbol for spaces.</em></li>
+</ul><h2>{placekitten}</h2>
+
+<p>The following params are available for placekitten:</p>
+
+<ul>
+<li>width (required)</li>
+<li>height</li>
+<li>greyscale [yes]</li>
+<li>img_tag [yes]</li>
+<li>extra (custom attributes - requires img_tag)</li>
+</ul><p><strong>Example usage:</strong></p>
+
+<p><code>{exp:placeholder:pk width="300" height="600" greyscale="yes"}</code></p>
+
+<p><strong>Aliases:</strong></p>
+
+<p><code>{exp:placeholder:pk}</code></p>
+
+<p><code>{exp:placeholder:kitten}</code></p>
+
+<p><code>{exp:placeholder:placekitten}</code></p>
+
+<p><code>{exp:placeholder:i_hate_dogs}</code></p>
+
+<p><strong>Notes:</strong></p>
+
+<p><em>If you don't add a height your image will be squared based on your set width.</em></p>
+
+<h2>PlaceDog</h2>
+
+<p>The following params are available for PlaceDog:</p>
+
+<ul>
+<li>width (required)</li>
+<li>height (required)</li>
+<li>greyscale [yes]</li>
+<li>img_tag [yes]</li>
+<li>extra (custom attributes - requires img_tag)</li>
+</ul><p><strong>Example usage:</strong></p>
+
+<p><code>{exp:placeholder:pd width="300" height="600" greyscale="yes"}</code></p>
+
+<p><strong>Aliases:</strong></p>
+
+<p><code>{exp:placeholder:pd}</code></p>
+
+<p><code>{exp:placeholder:dog}</code></p>
+
+<p><code>{exp:placeholder:placedog}</code></p>
+
+<p><code>{exp:placeholder:i_hate_cats}</code></p>
+
+<h2>LoremPixel</h2>
+
+<p>The following params are available for LoremPixel:</p>
+
+<ul>
+<li>width (required)</li>
+<li>height (required)</li>
+<li>text</li>
+<li>greyscale [yes]</li>
+<li>category [abstract|animals|city|food|nightlife|fashion|people|nature|sports|technics|transport]</li>
+<li>img_number [1-10]</li>
+<li>img_tag [yes]</li>
+<li>extra (custom attributes - requires img_tag)</li>
+</ul><p><strong>Example usage:</strong></p>
+
+<p><code>{exp:placeholder:lp width="300" height="400" category="sports" img_number="3" text="Flying high" greyscale="yes"}</code></p>
+
+<p><strong>Aliases:</strong></p>
+
+<p><code>{exp:placeholder:lp}</code></p>
+
+<p><code>{exp:placeholder:pixel}</code></p>
+
+<p><code>{exp:placeholder:lorempixel}</code></p>
+
+<p><strong>Notes:</strong></p>
+
+<p><em>Looks like special characters don't work with this service. Use [A-Z­a-z­0-9­-]</em></p>
+
+<h2>flickholdr</h2>
+
+<p>The following params are available for flickholdr:</p>
+
+<ul>
+<li>width (required)</li>
+<li>height (required)</li>
+<li>greyscale [yes]</li>
+<li>offsets [positive integer]</li>
+<li>tags (comma seperated tags of your choosing)</li>
+<li>img_tag [yes]</li>
+<li>extra (custom attributes - requires img_tag)</li>
+</ul><p><strong>Example usage:</strong></p>
+
+<p><code>{exp:placeholder:fl width="300" height="400" tags="sun,sea" greyscale="yes" offsets="1"}</code></p>
+
+<p><strong>Aliases:</strong></p>
+
+<p><code>{exp:placeholder:fl}</code></p>
+
+<p><code>{exp:placeholder:flickr}</code></p>
+
+<p><code>{exp:placeholder:flickholdr}</code></p>
+
+<p><strong>Notes:</strong></p>
+
+<p><em>I'm not sure how offsets work to be honest and if in fact positive integers are the only numbers which can be used or not.</em></p>
+
+<h2>Other Notes</h2>
+
+<p>The img_tag can be used for outputting an html img tag.</p>
+
+<p>The extra param may be used for manually adding things like class, id, title, alt, rel etc. (requires img_tag) - note the single quotes</p>
+
+<p><strong>Example usage:</strong></p>
+
+<p><code>{exp:placeholder:pk width="300" height="600" greyscale="yes" img_tag="yes" extra='alt="Cool pic" id="someID" class="someClass"'}</code></p>
+
+<p>The above tag will produce the following:</p>
+
+<p><code>&lt;img alt="Cool Pic" id="someID" class="someClass" src="http://placekitten.com/g/300/600" /&gt;</code></p>
+
+<h2>Compatibility</h2>
+
+<p><strong>ExpressionEngine 2.x+</strong></p>
+
+<p><em>Tested in 2.4.0</em></p>
+
+<h2>Installation</h2>
+
+<p><strong>For EE2</strong></p>
+
+<p>Copy <code>system/expressionengine/third_party/placeholder</code> to your <code>system/expressionengine/third_party</code> directory</p>
+
+<h2>Change Log</h2>
+
+<p><strong>Jul 18, 2012: 1.1.0</strong></p>
+
+<pre><code>Rewrite - URL output by default instead of the full img tag.
+        - You can now use your own img tags!
+        - Full img tag and extras are now had via params.
+        - Removed flickholdr SSL support and the ssl param
+</code></pre>
+
+<p><strong><em>Jul 12, 2012: 1.0.1</em></strong></p>
+
+<pre><code>Added flickholdr service
+Updated docs for flickholder usage
+Reorganized aliases by service
+Added missing required param warnings
+</code></pre>
+
+<p><strong><em>Jul 06, 2012: 1.0.0</em></strong></p>
+
+<pre><code>Initial Release
+</code></pre>
+
+<h2>Support</h2>
+
+<p><a href="http://natetronn.com">http://natetronn.com</a></p>
+
+<p><a href="http://twitter.com/natetronn">@natetronn</a></p>
+
+<h2>Credits</h2>
+
+<p><a href="http://placekitten.com">http://placekitten.com</a></p>
+
+<p><a href="http://placedog.com">http://placedog.com</a></p>
+
+<p><a href="http://placehold.it">http://placehold.it</a></p>
+
+<p><a href="http://lorempixel.com">http://lorempixel.com</a></p>
+
+<p><a href="http://flickholdr.com">http://flickholdr.com</a></p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/Natetronn">Natetronn</a> can be found on <a href="https://github.com/Natetronn/placeholder">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
