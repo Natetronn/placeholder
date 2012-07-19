@@ -4,7 +4,7 @@
  * Placeholder
  *
  * @package			Placeholder
- * @version			1.0.1
+ * @version			1.1.0
  * @author			Nathan Doyle <@natetronn>
  * @copyright		Copyright (c) 2012 Cosmos Web Works, LLC
  * @license			MIT  http://opensource.org/licenses/mit-license.php
@@ -17,7 +17,7 @@
 
 $plugin_info = array(
 	'pi_name'				=> 'Placeholder',
-	'pi_version'		=> '1.0.1',
+	'pi_version'		=> '1.1.0',
 	'pi_author'			=> 'Nathan Doyle',
 	'pi_author_url'	=> 'http://natetronn.com',
 	'pi_description'=> 'An ExpressionEngine Image Placeholding Add-on',
