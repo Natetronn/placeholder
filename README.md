@@ -1,3 +1,5 @@
+NOTE: This is add-on is no longer being supported and will not be updated for EE3. Fork it if you like.
+
 # Placeholder #
 ## An ExpressionEngine Image Placeholding Add-on ##
 
